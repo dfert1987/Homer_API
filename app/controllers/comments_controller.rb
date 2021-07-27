@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
     skip_before_action :authenticate, only:[:show, :index]
-    before_action :find_blog_by_id, only:[:show, :update]
+    before_action :find_comment_by_id, only:[:show, :update]
 
     def index
         @comments = Comment.all
@@ -19,7 +19,7 @@ class CommentsController < ApplicationController
 
     def update 
         @comment = Comment.update(comment_params)
-        render json:comment
+        render json: @comment
     end
 
     private
