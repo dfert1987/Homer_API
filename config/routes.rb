@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   resources :blogs
 
   post '/login', to: 'users#login'
+  get '/profile', to: 'users#profile'
 end
