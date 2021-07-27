@@ -19,7 +19,7 @@ class BlogsController < ApplicationController
 
     def update 
         @blog = Blog.update(blog_params)
-        render json:blog
+        render json: @blog
     end
 
     private
