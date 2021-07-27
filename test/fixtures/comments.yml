@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  blogComment: MyString
+  upVote: 1
+  downVote: 1
+  blog: one
+  user: one
+
+two:
+  blogComment: MyString
+  upVote: 1
+  downVote: 1
+  blog: two
+  user: two
