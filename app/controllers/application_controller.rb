@@ -1,5 +1,7 @@
 class ApplicationController < ActionController::API
-    
+
+    before_action :authenticate
+
     def authenticate
         auth_header = request.headers[:authorization]
 
@@ -16,8 +18,6 @@ class ApplicationController < ActionController::API
                 user_id = payload['user_id']
 
                 @user = User.find user_id
-
-               
             rescue
                 render json: { error: 'Invalid token.'}, status: :forbidden
             end
