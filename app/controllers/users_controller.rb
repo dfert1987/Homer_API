@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    skip_before_action :authenticate, only: [:create, :login]
+    skip_before_action :authenticate, only: [:create, :login, :update]
 
     def index
         @users = User.all
@@ -19,7 +19,7 @@ class UsersController < ApplicationController
         @user = User.find_by username: params[:user][:username]
 
         if !@user
-            render json: { error: "Wrong username or password."}, status: :unauthorized
+            render json: { error: "No User."}, status: :unauthorized
         else
             if !@user.authenticate params[:user][:password]
                 render json: { error: "Wrong username or password."}, status: :unauthorized
@@ -41,7 +41,7 @@ class UsersController < ApplicationController
 
     private
     def user_params
-        params.require(:user).permit(:username, :password, :email)
+        params.require(:user).permit(:username, :password)
     end
 
     def update_params
