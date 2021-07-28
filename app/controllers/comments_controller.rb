@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-    skip_before_action :authenticate, only:[:show, :index]
+    skip_before_action :authenticate, only:[:show, :create, :update]
     before_action :find_comment_by_id, only:[:show, :update]
 
     def index
