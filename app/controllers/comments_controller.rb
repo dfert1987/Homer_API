@@ -13,7 +13,13 @@ class CommentsController < ApplicationController
     end
 
     def create
-        @comment = Comment.create(comment_params)
+        @comment = Comment.create(
+            blogComment: params[:blogComment],
+            upVote: params[:upVote],
+            downVote: params[:downVote],
+            blog: params[:blog],
+            user: params[:user],
+        )
         render json: @comment
     end
 
