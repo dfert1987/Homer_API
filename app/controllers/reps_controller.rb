@@ -24,7 +24,7 @@ class RepsController < ApplicationController
 
     private
         def rep_params
-            params.require(:reply).permit(:reply, :upVotes, :downVotes, :commentID, :userID)
+            params.require(:rep).permit(:reply, :upVotes, :downVotes, :commentID, :userID)
         end
 
         def find_reply_by_id
