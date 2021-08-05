@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    skip_before_action :authenticate, only: [:create, :login, :update]
+    skip_before_action :authenticate, only: [:create, :index, :login, :update]
 
     def index
         @users = User.all
@@ -47,5 +47,4 @@ class UsersController < ApplicationController
     def update_params
         params.require(:user).permit(:username, :password_digest, :email, :avatar, :twitter, :dob, :about, :name, :city, :state)
     end
-    
 end

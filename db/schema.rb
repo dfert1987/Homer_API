@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_28_053102) do
+ActiveRecord::Schema.define(version: 2021_08_05_195949) do
 
   create_table "blogs", force: :cascade do |t|
     t.string "title"
@@ -60,6 +60,16 @@ ActiveRecord::Schema.define(version: 2021_07_28_053102) do
     t.integer "user_id", null: false
     t.index ["comment_id"], name: "index_replies_on_comment_id"
     t.index ["user_id"], name: "index_replies_on_user_id"
+  end
+
+  create_table "reps", force: :cascade do |t|
+    t.string "reply"
+    t.integer "upVotes"
+    t.integer "downVotes"
+    t.integer "commentID"
+    t.integer "userID"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|

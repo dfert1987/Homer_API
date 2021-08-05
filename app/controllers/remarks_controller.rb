@@ -1,5 +1,5 @@
 class RemarksController < ApplicationController
-    skip_before_action :authenticate, only:[:show, :create, :update]
+    skip_before_action :authenticate, only:[:show, :index, :create, :update]
     before_action :find_comment_by_id, only:[:show, :update]
 
     def index
