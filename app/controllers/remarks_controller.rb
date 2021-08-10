@@ -1,6 +1,6 @@
 class RemarksController < ApplicationController
     skip_before_action :authenticate, only:[:show, :index, :create, :update]
-    before_action :find_comment_by_id, only:[:show, :update]
+    before_action :find_remark_by_id, only:[:show, :update]
 
     def index
         @remarks = Remark.all

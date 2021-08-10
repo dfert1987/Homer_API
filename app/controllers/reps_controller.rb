@@ -1,5 +1,5 @@
 class RepsController < ApplicationController
-    skip_before_action :authenticate, only:[:show, :index, :create]
+    skip_before_action :authenticate, only:[:show, :index, :create, :update]
     before_action :find_rep_by_id, only:[:show, :update]
 
     def index
@@ -27,7 +27,7 @@ class RepsController < ApplicationController
             params.require(:rep).permit(:reply, :upVotes, :downVotes, :commentID, :userID)
         end
 
-        def find_reply_by_id
-            @reply = Reply.find(params[:id])
+        def find_rep_by_id
+            @rep = Rep.find(params[:id])
         end
 end
